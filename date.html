@@ -156,6 +156,9 @@
           return;
         }
 
+        localStorage.setItem("date", date);
+        localStorage.setItem("time", time);
+
         document.querySelector(".container").innerHTML = `
     <h1>What should we eat? ❤️</h1>
     <h2>Pick your favorite 🥰</h2>
