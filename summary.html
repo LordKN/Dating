@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>It's a Date ❤️</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #ffe6f0;
+      font-family: Arial, sans-serif;
+    "
+  >
+    <div style="text-align: center">
+      <h1>It's a Date! ❤️🥰</h1>
+
+      <h2 id="details"></h2>
+
+      <h3>Can't wait to see you 🌹✨</h3>
+
+      <button id="sendBtn">Confirm ❤️</button>
+    </div>
+
+    <script>
+      emailjs.init({
+        publicKey: "F0hDXfQP6WKO6Utnj",
+      });
+      const date = localStorage.getItem("date");
+      const time = localStorage.getItem("time");
+      const food = localStorage.getItem("food");
+      const activity = localStorage.getItem("activity");
+
+      document.getElementById("details").innerHTML = `
+    📅 ${date}<br><br>
+    ⏰ ${time}<br><br>
+    🍽️ ${food}<br><br>
+    🎉 ${activity}
+`;
+
+      document.getElementById("sendBtn").addEventListener("click", () => {
+        emailjs
+          .send("service_jb5fn3f", "template_71s7lxl", {
+            date: date,
+            time: time,
+            food: food,
+            activity: activity,
+          })
+          .then(() => {
+            alert("❤️ Date confirmed! Email sent!");
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Something went wrong.");
+          });
+      });
+    </script>
+  </body>
+</html>
+
+<!--publicKey: "WnvKwU_o2-TcB_Hsm"-->
+<!--"service_rd4swvk", "template_wx096y5"-->

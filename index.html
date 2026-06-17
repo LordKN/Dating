@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date?</title>
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffe6f0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      h1 {
+        color: #ff4d88;
+        margin-bottom: 40px;
+      }
+
+      button {
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      #yesBtn {
+        background-color: #4caf50;
+        color: white;
+        margin-right: 20px;
+      }
+
+      #noBtn {
+        background-color: #ff4d4d;
+        color: white;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Can I take you out for dinner tonight? ❤️</h1>
+      <button id="yesBtn">Yes, definitely 😊</button>
+      <button id="noBtn">No, maybe next time 😢</button>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+      const yesBtn = document.getElementById("yesBtn");
+
+      let yesScale = 1;
+
+      // Initial position of No button
+      noBtn.style.left = "55%";
+      noBtn.style.top = "55%";
+
+      noBtn.addEventListener("mouseover", () => {
+        // Make Yes button bigger
+        yesScale += 0.2;
+        yesBtn.style.transform = `scale(${yesScale})`;
+
+        // Move No button to a random location
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+      });
+
+      yesBtn.addEventListener("click", () => {
+        window.location.href = "date.html";
+      });
+    </script>
+  </body>
+</html>
