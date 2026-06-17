@@ -159,6 +159,9 @@
         localStorage.setItem("date", date);
         localStorage.setItem("time", time);
 
+        console.log("Saved date:", localStorage.getItem("date"));
+        console.log("Saved time:", localStorage.getItem("time"));
+
         document.querySelector(".container").innerHTML = `
     <h1>What should we eat? ❤️</h1>
     <h2>Pick your favorite 🥰</h2>

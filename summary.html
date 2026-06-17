@@ -40,6 +40,10 @@
     🎉 ${activity}
 `;
 
+      console.log(localStorage);
+      console.log(localStorage.getItem("date"));
+      console.log(localStorage.getItem("time"));
+
       document.getElementById("sendBtn").addEventListener("click", () => {
         emailjs
           .send("service_jb5fn3f", "template_71s7lxl", {
